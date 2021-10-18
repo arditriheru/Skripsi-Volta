@@ -58,7 +58,7 @@
                         </a>
 
                     </div>
-                    <p class="text-center">Copyright © 2021 Fakultas Hukum UII</p>
+                    <p class="text-center"><?= getCopyright(); ?></p>
                 </form>
 
                 <div class="login100-more" style="background-image: url('<?= base_url(); ?>/login/images/bg-01.jpg');">

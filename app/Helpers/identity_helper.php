@@ -12,7 +12,7 @@
 if (!function_exists('getTabTitle')) {
 	function getTabTitle()
 	{
-		$getTopTitle = "Gateway FH UII";
+		$getTopTitle = "SIMKA";
 		return $getTopTitle;
 	}
 }
