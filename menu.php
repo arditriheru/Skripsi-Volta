@@ -10,7 +10,7 @@
         </ul>
     </li>
     <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="dokter.php">DOKTER</a>
+        <a class="nav-link" aria-current="page" href="treatment.php">DOKTER</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" aria-current="page" href="farmasi.php">FARMASI</a>

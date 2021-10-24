@@ -34,12 +34,25 @@
                     </div>
                     <div class="col-12">
                         <label><b>Nama Dokter</b></label>
-                        <select name="dokter" class="form-select" aria-label="Default select example">
+                        <select name="dokter" class="form-select" aria-label="Default select example" required>
                             <option value="">Pilih</option>
                             <option value="dr. Ullya Nor Rosyidah">dr. Ullya Nor Rosyidah</option>
                             <option value="dr. Indranila Kurniasari. Sp. KK">dr. Indranila Kurniasari. Sp. KK</option>
                             <option value="dr. Suci Sukmawati">dr. Suci Sukmawati</option>
                         </select>
+                    </div>
+                    <div class="col-12">
+                        <label><b>Konsultasi</b></label>
+                        <select name="konsultasi" class="form-select" aria-label="Default select example" required>
+                            <option value="">Pilih</option>
+                            <option value="Treatment 1">Treatment 1</option>
+                            <option value="Treatment 2">Treatment 2</option>
+                            <option value="Treatment 3">Treatment 3</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label><b>Catatan Khusus</b></label>
+                        <input type="text" name="note" class="form-control" placeholder="Tambahkan catatan jika perlu.." required>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary float-end">Daftar</button>
