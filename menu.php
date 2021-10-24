@@ -26,3 +26,4 @@
         <a class="nav-link text-danger" aria-current="page" href="logout.php">LOGOUT</a>
     </li>
 </ul>
+<hr>

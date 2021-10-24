@@ -5,7 +5,7 @@
             <img src="img/header.jpg" class="img-fluid" alt="...">
         </div>
     </div>
-    <div class="row mt-3 mb-5">
+    <div class="row mt-3 mb-2">
         <div class="col">
             <?php include('menu.php'); ?>
         </div>
@@ -70,7 +70,7 @@
                             <td class="text-right" scope="row"><?= $d['nama']; ?></td>
                             <td class="text-center" scope="row"><?= $d['tempat_lahir'] . ',&nbsp;' . date('d m Y', strtotime($d['tgl_lahir'])); ?></td>
                             <td class="text-center" scope="row">
-                                <a href="daftar_treatment_form.php?id_customer=<?= $d['id_customer']; ?>" type="button" class="btn btn-primary">Pilih</a>
+                                <a href="daftar_treatment_form.php?id_customer=<?= $d['id_customer']; ?>" type="button" class="btn btn-primary">Detail</a>
                             </td>
                             </ </tr>
 

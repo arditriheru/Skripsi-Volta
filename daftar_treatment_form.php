@@ -5,7 +5,7 @@
             <img src="img/header.jpg" class="img-fluid" alt="...">
         </div>
     </div>
-    <div class="row mt-3 mb-5">
+    <div class="row mt-3 mb-2">
         <div class="col">
             <?php include('menu.php'); ?>
         </div>
