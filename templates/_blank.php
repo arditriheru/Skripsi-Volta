@@ -1,5 +1,5 @@
 <?php include('templates/header.php'); ?>
-<div class="container mb-5">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <img src="img/header.jpg" class="img-fluid" alt="...">

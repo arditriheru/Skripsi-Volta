@@ -1,28 +1,28 @@
-<div class="container">
-    <br class="clear" />
-    <div class="wrapper col2">
-        <div id="topbar">
-            <div id="topnav">
-                <ul>
-                    <li><a href="dashboard.php">Home</a></li>
-                    <li><a href="halaman_pendaftaran.php">Resepsionis</a></li>
-                    <li><a href="halaman_dokter.php">Dokter</a></li>
-                    <li><a href="halaman_farmasi.php">Farmasi</a></li>
-                    <li><a href="#">Produk</a>
-                        <ul role="menu" class="sub-menu">
-                            <li><a href="tiket_tampil.php">Lihat</a></li>
-                            <li><a href="tiket_tambah.php">Tambah</a></li>
-                        </ul>
-                    </li>
-                    <li class="active"><a href="logout.php">
-                            <font color='red'>Logout</font>
-                        </a></li>
-
-                </ul>
-            </div>
-
-            <br class="clear" />
-        </div>
-
-    </div>
-</div>
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="dashboard.php">BERANDA</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">PENDAFTARAN</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="daftar_treatment.php">Daftar Treatment</a></li>
+            <li><a class="dropdown-item" href="registrasi_baru.php">Registrasi Baru</a></li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="dokter.php">DOKTER</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="farmasi.php">FARMASI</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">PRODUK</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="produk.php">Lihat</a></li>
+            <li><a class="dropdown-item" href="produk_tambah.php">Tambah</a></li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-danger" aria-current="page" href="logout.php">LOGOUT</a>
+    </li>
+</ul>

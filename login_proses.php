@@ -1,20 +1,20 @@
 <?php
 
-include 'koneksi.php';
+include 'templates/koneksi.php';
 
 $username   = $_POST['username'];
-$email      = $_POST['email'];
+$password   = $_POST['password'];
 
-$a = mysqli_query($koneksi, "SELECT id_user
+$query = mysqli_query($koneksi, "SELECT *
 			FROM user
 			WHERE username='$username'
-			AND email='$email'");
-while ($b = mysqli_fetch_array($a)) {
-    $id_user     = $b['id_user'];
-    $nama_user   = $b['nama_user'];
+			AND password='$password'");
+while ($d = mysqli_fetch_array($query)) {
+    $id_user     = $d['id_user'];
+    $nama_user   = $d['nama_user'];
 }
 
-$cek = mysqli_num_rows($a);
+$cek = mysqli_num_rows($query);
 if ($cek > 0) {
 
     session_start();
