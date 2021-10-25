@@ -11,6 +11,16 @@
         </div>
     </div>
     <div class="row">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+                <p>Form SPK</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+                Beauty Lux
+            </figcaption>
+        </figure>
+    </div>
+    <div class="row">
         <div class="col-md-6">
 
             <?php
@@ -28,7 +38,6 @@
             ?>
 
                 <form method="post" action="treatment_tambah.php" class="row g-3" enctype="multipart/form-data">
-                    <h4 class="text-center">Form SPK</h4>
                     <div class="col-12">
                         <input type="hidden" name="id_treatment" class="form-control" value="<?= $d['id_treatment']; ?>" readonly>
                         <label><b>Nomor RM</b></label>
@@ -39,7 +48,9 @@
                         <input type="text" name="" class="form-control" value="<?= $d['nama']; ?>" readonly>
                     </div>
                     <div class="col-12">
-                        <div class="form-check">
+                        <label><b>Nama Produk</b></label>
+                        <select name="id_produk" class="form-select" aria-label="Default select example" required>
+                            <option value="">Pilih</option>
                             <?php
                             $no = 0;
                             $data = mysqli_query(
@@ -48,25 +59,62 @@
                             );
                             while ($d = mysqli_fetch_array($data)) { ?>
 
-                                <input class="form-check-input" name="produk[]" type="checkbox" value="<?= $d['id_produk']; ?>" id="<?= 'label' . $no++; ?>">
-                                <label class="form-check-label" for="<?= 'label' . $no++; ?>">
-                                    <?= $d['nama_produk']; ?>
-                                </label>
-                                <input type="text" name="dosis[]" class="form-control mt-2 mb-3" placeholder="Dosis">
+                                <option value="<?= $d['id_produk']; ?>"><?= $d['nama_produk']; ?></option>
 
                             <?php } ?>
 
-                        </div>
+                        </select>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary float-end">Daftar</button>
+                        <label><b>Dosis</b></label>
+                        <input type="text" name="dosis" class="form-control" placeholder="Dosis" required>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary float-end">Tambah</button>
                     </div>
                 </form>
 
             <?php } ?>
 
         </div>
-    </div>
-</div>
+        <div class="col-md-6">
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">#</th>
+                        <th class="text-center" scope="col">Nama Produk</th>
+                        <th class="text-center" scope="col">Dosis</th>
+                        <th class="text-center" scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-<?php include('templates/footer.php'); ?>
+                    <?php
+                    $no = 1;
+                    include 'templates/koneksi.php';
+                    $query = mysqli_query($koneksi, "
+                    SELECT *
+                    FROM treatment_detail
+                    JOIN produk
+                    ON treatment_detail.id_produk = produk.id_produk
+                    WHERE treatment_detail.id_treatment = '$id_treatment'
+                    ");
+                    while ($d = mysqli_fetch_array($query)) {
+                    ?>
+
+                        <tr>
+                            <td class="text-center" scope="row"><?= $no++; ?></td>
+                            <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
+                            <td class="text-center" scope="row"><?= $d['dosis']; ?></td>
+                            <td class="text-center" scope="row">
+                                <a href="treatment_form.php?id_produk=<?= $d['id_produk']; ?>" type="button" class="btn btn-danger">Hapus</a>
+                            </td>
+                        </tr>
+
+                    <?php } ?>
+
+            </table>
+        </div>
+    </div>
+
+    <?php include('templates/footer.php'); ?>

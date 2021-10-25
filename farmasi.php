@@ -13,7 +13,7 @@
     <div class="row">
         <figure class="text-center">
             <blockquote class="blockquote">
-                <p>Pasien Treatment</p>
+                <p>SPK Farmasi</p>
             </blockquote>
             <figcaption class="blockquote-footer">
                 Beauty Lux
@@ -50,7 +50,7 @@
                     FROM treatment
                     JOIN customer
                     ON treatment.id_customer = customer.id_customer
-                    WHERE treatment.status = 0
+                    WHERE treatment.status = 1
                     ORDER BY treatment.id_treatment ASC
                     ");
                     while ($d = mysqli_fetch_array($query)) {

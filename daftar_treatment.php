@@ -10,6 +10,16 @@
             <?php include('menu.php'); ?>
         </div>
     </div>
+    <div class="row">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+                <p>Pendaftaran Pasien</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+                Beauty Lux
+            </figcaption>
+        </figure>
+    </div>
     <div class="row mb-5">
         <div class="col-md-6">
             <form method="post" action="daftar_treatment_cari_nama_list.php" class="row g-3">
@@ -37,7 +47,7 @@
     <hr>
     <div class="row mt-5">
         <div class="col-md-12">
-            <table class="table table-hover">
+            <table class="table table-success table-striped">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">#</th>
@@ -54,7 +64,12 @@
                     $no = 1;
                     include 'templates/koneksi.php';
                     $query = mysqli_query($koneksi, "
-                    SELECT *
+                    SELECT *,
+                    CASE
+                    WHEN treatment.status = 0 THEN 'Treatment'
+                    WHEN treatment.status = 1 THEN 'Farmasi'
+                    WHEN treatment.status = 2 THEN 'Bayar'
+                    END AS nm_status
                     FROM treatment
                     JOIN customer
                     ON treatment.id_customer = customer.id_customer
@@ -69,8 +84,9 @@
                             <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
                             <td class="text-right" scope="row"><?= $d['nama']; ?></td>
                             <td class="text-center" scope="row"><?= $d['tempat_lahir'] . ',&nbsp;' . date('d m Y', strtotime($d['tgl_lahir'])); ?></td>
-                            <td class="text-center" scope="row">
+                            <td class="text-left" scope="row">
                                 <a href="daftar_treatment_detail.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success">Detail</a>
+                                <a href="#" type="button" class="btn btn-secondary"><?= $d['nm_status']; ?></a>
                             </td>
                             </ </tr>
 
