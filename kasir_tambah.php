@@ -2,8 +2,8 @@
 
 include 'templates/koneksi.php';
 
-$id_treatment   = 3;
-$total          = 410000;
+$id_treatment   = $_POST['id_treatment'];
+$total          = $_POST['total'];
 
 $insert = mysqli_query($koneksi, "INSERT INTO penjualan(id_penjualan, id_treatment, total)VALUES('','$id_treatment','$total')");
 

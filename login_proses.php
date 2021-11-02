@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include 'templates/koneksi.php';
 
 $username   = $_POST['username'];
@@ -17,8 +18,8 @@ while ($d = mysqli_fetch_array($query)) {
 $cek = mysqli_num_rows($query);
 if ($cek > 0) {
 
-    session_start();
-    $_SESSION['id_user'] = $id_user;
+    $_SESSION['id_user']     = $id_user;
+    $_SESSION['nama_user']   = $nama_user;
     header("location:dashboard.php");
 } else {
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <ul class="nav nav-pills">
     <li class="nav-item">
         <a class="nav-link" aria-current="page" href="dashboard.php">BERANDA</a>
@@ -27,6 +28,9 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-danger" aria-current="page" href="logout.php">LOGOUT</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page"><?= 'Login sebagai : ' .  $_SESSION["nama_user"]; ?></a>
     </li>
 </ul>
 <hr>

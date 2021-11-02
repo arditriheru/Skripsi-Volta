@@ -3,7 +3,7 @@ session_start();
 include 'templates/koneksi.php';
 
 $id_customer    = $_POST['id_customer'];
-$id_user        = $_SESSION['id_user'];
+$id_user        = $_SESSION["id_user"];
 $dokter         = $_POST['dokter'];
 $konsultasi     = $_POST['konsultasi'];
 $note           = $_POST['note'];
