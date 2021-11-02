@@ -16,7 +16,7 @@
                 <p>Pasien Treatment</p>
             </blockquote>
             <figcaption class="blockquote-footer">
-                Beauty Lux
+                Poliklinik
             </figcaption>
         </figure>
     </div>
