@@ -19,7 +19,7 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">PRODUK</a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="produk.php">Lihat</a></li>
-            <li><a class="dropdown-item" href="produk_tambah.php">Tambah</a></li>
+            <!-- <li><a class="dropdown-item" href="produk_tambah.php">Tambah</a></li> -->
         </ul>
     </li>
     <li class="nav-item">

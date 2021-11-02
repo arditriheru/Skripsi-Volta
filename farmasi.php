@@ -30,6 +30,7 @@
                         <th class="text-center" scope="col">Registrasi</th>
                         <th class="text-center" scope="col">Nomor RM</th>
                         <th class="text-center" scope="col">Nama Pasien</th>
+                        <th class="text-center" scope="col">Dokter</th>
                         <th class="text-center" scope="col">Konsultasi</th>
                         <th class="text-center" scope="col">Catatan</th>
                         <th class="text-center" scope="col">Action</th>
@@ -59,14 +60,14 @@
                         <tr>
                             <td class="text-center" scope="row"><?= $no++; ?></td>
                             <td class="text-center" scope="row"><?= $d['id_treatment']; ?></td>
-                            <td class="text-center" scope="row"><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
+                            <td class="text-center" scope="row"><span class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
                             <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
                             <td class="text-right" scope="row"><?= $d['nama']; ?></td>
+                            <td class="text-right" scope="row"><?= $d['dokter']; ?></td>
                             <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
                             <td class="text-center" scope="row"><?= $d['note']; ?></td>
-                            <td class="text-left" scope="row">
-                                <a href="treatment_form.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success">Buat SPK</a>
-                                <a href="#" type="button" class="btn btn-secondary"><?= $d['nm_status']; ?></a>
+                            <td class="text-center" scope="row">
+                                <a href="farmasi_form_tambah.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success">Detail</a>
                             </td>
                             </ </tr>
 

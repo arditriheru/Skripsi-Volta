@@ -80,13 +80,12 @@
 
                         <tr>
                             <td class="text-center" scope="row"><?= $no++; ?></td>
-                            <td class="text-center" scope="row"><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
+                            <td class="text-center" scope="row"> <span class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
                             <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
                             <td class="text-right" scope="row"><?= $d['nama']; ?></td>
                             <td class="text-center" scope="row"><?= $d['tempat_lahir'] . ',&nbsp;' . date('d m Y', strtotime($d['tgl_lahir'])); ?></td>
-                            <td class="text-left" scope="row">
+                            <td class="text-center" scope="row">
                                 <a href="daftar_treatment_detail.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success">Detail</a>
-                                <a href="#" type="button" class="btn btn-secondary"><?= $d['nm_status']; ?></a>
                             </td>
                             </ </tr>
 
