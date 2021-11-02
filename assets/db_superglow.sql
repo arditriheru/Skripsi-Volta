@@ -69,14 +69,17 @@ DROP TABLE IF EXISTS `penjualan`;
 CREATE TABLE `penjualan` (
   `id_penjualan` int(100) NOT NULL AUTO_INCREMENT,
   `id_treatment` int(100) NOT NULL,
-  `tanggal` date NOT NULL,
   `total` int(5) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id_penjualan`),
   KEY `id_penjualan` (`id_penjualan`),
   KEY `id_treatment` (`id_treatment`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `penjualan` */
+
+insert  into `penjualan`(`id_penjualan`,`id_treatment`,`total`,`tanggal`) values 
+(1,3,410000,'2021-11-02 12:44:20');
 
 /*Table structure for table `produk` */
 
@@ -144,7 +147,7 @@ CREATE TABLE `treatment` (
 /*Data for the table `treatment` */
 
 insert  into `treatment`(`id_treatment`,`id_customer`,`id_user`,`dokter`,`konsultasi`,`note`,`tanggal`,`status`) values 
-(3,1,1,'dr. Ullya Nor Rosyidah','Treatment 1','Catatan 1','2021-11-02 08:49:08',1),
+(3,1,1,'dr. Ullya Nor Rosyidah','Treatment 1','Catatan 1','2021-11-02 12:30:22',3),
 (4,2,1,'dr. Indranila Kurniasari. Sp. KK','Treatment 2','Alergi kacang','2021-11-02 11:39:57',1);
 
 /*Table structure for table `treatment_detail` */

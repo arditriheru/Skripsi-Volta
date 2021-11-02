@@ -26,6 +26,8 @@ while ($d = mysqli_fetch_array($cek_harga)) {
 $insert = mysqli_query($koneksi, "INSERT INTO detail_penjualan(id_detail_penjualan, id_treatment, id_produk, harga_satuan, jumlah)VALUES('','$id_treatment','$id_produk','$harga_satuan','$jumlah')");
 
 if ($insert) {
+    mysqli_query($koneksi, "UPDATE treatment 
+      SET status='2' WHERE id_treatment='$id_treatment'");
     echo '<script>alert("Berhasil dibuat!");</script>';
     header('location: farmasi_form_tambah.php?id_treatment=' . $id_treatment);
 } else {
