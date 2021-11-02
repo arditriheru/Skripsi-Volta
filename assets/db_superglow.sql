@@ -51,16 +51,14 @@ CREATE TABLE `detail_penjualan` (
   PRIMARY KEY (`id_detail_penjualan`),
   KEY `id_detail_penjualan` (`id_detail_penjualan`),
   KEY `id_produk` (`id_produk`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `detail_penjualan` */
 
 insert  into `detail_penjualan`(`id_detail_penjualan`,`id_treatment`,`id_produk`,`harga_satuan`,`jumlah`,`tanggal`) values 
-(1,3,1,55000,2,'2021-11-02 11:42:25'),
-(2,3,2,75000,1,'2021-11-02 11:42:25'),
-(3,3,3,75000,3,'2021-11-02 11:42:25'),
-(4,4,4,55000,1,'2021-11-02 11:42:25'),
-(5,4,4,55000,2,'2021-11-02 11:42:25');
+(1,7,1,55000,1,'2021-11-02 13:24:01'),
+(2,7,2,75000,2,'2021-11-02 13:24:08'),
+(3,7,3,75000,3,'2021-11-02 13:24:14');
 
 /*Table structure for table `penjualan` */
 
@@ -79,7 +77,7 @@ CREATE TABLE `penjualan` (
 /*Data for the table `penjualan` */
 
 insert  into `penjualan`(`id_penjualan`,`id_treatment`,`total`,`tanggal`) values 
-(1,3,410000,'2021-11-02 12:44:20');
+(1,7,430000,'2021-11-02 13:25:09');
 
 /*Table structure for table `produk` */
 
@@ -100,9 +98,9 @@ CREATE TABLE `produk` (
 /*Data for the table `produk` */
 
 insert  into `produk`(`id_produk`,`id_produk_kategori`,`nama_produk`,`harga`,`stok`) values 
-(1,1,'LUX GLOW & WHITENING NIGHT CREAM',55000,98),
-(2,2,'LUX ACNE SERUM',75000,99),
-(3,2,'LUX GLOW SERUM',75000,97),
+(1,1,'LUX GLOW & WHITENING NIGHT CREAM',55000,97),
+(2,2,'LUX ACNE SERUM',75000,97),
+(3,2,'LUX GLOW SERUM',75000,94),
 (4,3,'LUX GLOW TONER',55000,97),
 (5,1,'LUX ACNE CALMING NIGHT CREAM',55000,100),
 (6,3,'LUX ACNE TONER',55000,100);
@@ -142,13 +140,12 @@ CREATE TABLE `treatment` (
   KEY `id_treatment` (`id_treatment`),
   KEY `id_customer` (`id_customer`),
   CONSTRAINT `treatment_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`id_customer`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `treatment` */
 
 insert  into `treatment`(`id_treatment`,`id_customer`,`id_user`,`dokter`,`konsultasi`,`note`,`tanggal`,`status`) values 
-(3,1,1,'dr. Ullya Nor Rosyidah','Treatment 1','Catatan 1','2021-11-02 12:30:22',3),
-(4,2,1,'dr. Indranila Kurniasari. Sp. KK','Treatment 2','Alergi kacang','2021-11-02 11:39:57',1);
+(7,1,1,'dr. Ullya Nor Rosyidah','Treatment 1','Catatan 1','2021-11-02 13:25:09',3);
 
 /*Table structure for table `treatment_detail` */
 
@@ -164,16 +161,14 @@ CREATE TABLE `treatment_detail` (
   KEY `id_treatment` (`id_treatment`),
   KEY `id_produk` (`id_produk`),
   CONSTRAINT `treatment_detail_ibfk_1` FOREIGN KEY (`id_treatment`) REFERENCES `treatment` (`id_treatment`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `treatment_detail` */
 
 insert  into `treatment_detail`(`id_treatment_detail`,`id_treatment`,`id_produk`,`dosis`) values 
-(1,3,1,'2pcs'),
-(2,3,2,'1pcs'),
-(3,3,3,'3pcs'),
-(4,4,6,'1pcs'),
-(5,4,4,'2pcs');
+(1,7,1,'1pcs'),
+(2,7,2,'2pcs'),
+(3,7,3,'3pcs');
 
 /*Table structure for table `user` */
 
