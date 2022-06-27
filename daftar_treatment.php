@@ -66,7 +66,7 @@
                     $query = mysqli_query($koneksi, "
                     SELECT *,
                     CASE
-                    WHEN treatment.status = 0 THEN 'Treatment'
+                    WHEN treatment.status = 0 THEN 'Proses konsultasi'
                     WHEN treatment.status = 1 THEN 'Farmasi'
                     WHEN treatment.status = 2 THEN 'Bayar'
                     END AS nm_status

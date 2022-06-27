@@ -11,15 +11,17 @@ $query = mysqli_query($koneksi, "SELECT *
 			WHERE username='$username'
 			AND password='$password'");
 while ($d = mysqli_fetch_array($query)) {
-    $id_user     = $d['id_user'];
-    $nama_user   = $d['nama_user'];
+    $id_user        = $d['id_user'];
+    $nama_user      = $d['nama_user'];
+    $akses          = $d['akses'];
 }
 
 $cek = mysqli_num_rows($query);
 if ($cek > 0) {
 
-    $_SESSION['id_user']     = $id_user;
-    $_SESSION['nama_user']   = $nama_user;
+    $_SESSION['id_user']    = $id_user;
+    $_SESSION['nama_user']  = $nama_user;
+    $_SESSION['login_as']   = $akses;
     header("location:dashboard.php");
 } else {
 
