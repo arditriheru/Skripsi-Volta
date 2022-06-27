@@ -84,14 +84,18 @@
                     </div>
                     <div class="col-12">
                         <label><b>Konsultasi</b></label>
+                        <input type="text" name="" class="form-control" value="<?= $d['konsultasi']; ?>" readonly>
+                    </div>
+                    <div class="col-12">
+                        <label><b>Kondisi Awal</b></label>
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" readonly><?= $d['konsultasi']; ?></textarea>
+                            <textarea class="form-control" style="height: 100px" readonly><?= $d['note']; ?></textarea>
                         </div>
                     </div>
                     <div class="col-12">
-                        <label><b>Catatan</b></label>
+                        <label><b>Kesimpulan Dokter</b></label>
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" readonly><?= $d['note']; ?></textarea>
+                            <textarea class="form-control" style="height: 100px" readonly><?= $d['kesimpulan']; ?></textarea>
                         </div>
                     </div>
                 </form>
