@@ -51,11 +51,11 @@
                         </select>
                     </div>
                     <div class="col-12">
-                        <label><b>Catatan Khusus</b></label>
+                        <label><b>Kondisi Awal</b></label>
                         <input type="text" name="note" class="form-control" placeholder="Tambahkan catatan jika perlu.." required>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary float-end">Daftar</button>
+                        <button type="submit" class="btn btn-primary float-end">Daftarkan</button>
                     </div>
                 </form>
 
