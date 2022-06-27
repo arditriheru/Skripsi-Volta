@@ -118,7 +118,7 @@
                         <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
                         <td class="text-center" scope="row"><?= $d['dosis']; ?></td>
                         <td class="text-center" scope="row">
-                            <a href="treatment_form.php?id_produk=<?= $d['id_produk']; ?>" type="button" class="btn btn-danger">Hapus</a>
+                            <a href="treatment_form.php?id_produk=<?= $d['id_produk']; ?>" type="button" class="btn btn-danger btn-sm">Hapus</a>
                         </td>
                     </tr>
 

@@ -39,7 +39,7 @@
                             <th class="text-center" scope="row"><?= $d['nama']; ?></th>
                             <th class="text-center" scope="row"><?= $d['tempat_lahir'] . ',&nbsp;' . date('d m Y', strtotime($d['tgl_lahir'])); ?></th>
                             <th class="text-center" scope="row">
-                                <a href="daftar_treatment_form.php?id_customer=<?= $d['id_customer']; ?>" type="button" class="btn btn-primary">Pilih</a>
+                                <a href="daftar_treatment_form.php?id_customer=<?= $d['id_customer']; ?>" type="button" class="btn btn-primary btn-sm">Pilih</a>
                             </th>
                             </ </tr>
 

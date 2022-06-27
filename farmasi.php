@@ -32,7 +32,8 @@
                         <th class="text-center" scope="col">Nama Pasien</th>
                         <th class="text-center" scope="col">Dokter</th>
                         <th class="text-center" scope="col">Konsultasi</th>
-                        <th class="text-center" scope="col">Catatan</th>
+                        <th class="text-center" scope="col">Kondisi Awal</th>
+                        <th class="text-center" scope="col">Kesimpulan</th>
                         <th class="text-center" scope="col">Action</th>
                     </tr>
                 </thead>
@@ -67,8 +68,9 @@
                             <td class="text-right" scope="row"><?= $d['dokter']; ?></td>
                             <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
                             <td class="text-center" scope="row"><?= $d['note']; ?></td>
+                            <td class="text-center" scope="row"><?= $d['kesimpulan']; ?></td>
                             <td class="text-center" scope="row">
-                                <a href="farmasi_form_tambah.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success">Detail</a>
+                                <a href="farmasi_form_tambah.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success btn-sm">Detail</a>
                             </td>
                             </ </tr>
 

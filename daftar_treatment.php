@@ -85,7 +85,7 @@
                             <td class="text-right" scope="row"><?= $d['nama']; ?></td>
                             <td class="text-center" scope="row"><?= $d['tempat_lahir'] . ',&nbsp;' . date('d m Y', strtotime($d['tgl_lahir'])); ?></td>
                             <td class="text-center" scope="row">
-                                <a href="daftar_treatment_detail.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success">Detail</a>
+                                <a href="daftar_treatment_detail.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success btn-sm">Detail</a>
                             </td>
                             </ </tr>
 

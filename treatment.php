@@ -66,7 +66,7 @@
                             <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
                             <td class="text-center" scope="row"><?= $d['note']; ?></td>
                             <td class="text-left" scope="row">
-                                <a href="treatment_form.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success">Buat SPK</a>
+                                <a href="treatment_form.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success btn-sm">Buat SPK</a>
                             </td>
                             </ </tr>
 

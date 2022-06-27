@@ -63,7 +63,7 @@
                             <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
                             <td class="text-right" scope="row"><?= $d['nama']; ?></td>
                             <td class="text-center" scope="row">
-                                <a href="kasir_nota.php?id_treatment=<?= $d['id_treatment']; ?>&nama=<?= $d['nama']; ?>" type="button" class="btn btn-success">Nota</a>
+                                <a href="kasir_nota.php?id_treatment=<?= $d['id_treatment']; ?>&nama=<?= $d['nama']; ?>" type="button" class="btn btn-success btn-sm">Nota</a>
                             </td>
                         </tr>
 
