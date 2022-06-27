@@ -46,7 +46,14 @@
                             <td class="text-center" scope="row"><?= $no++; ?></td>
                             <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
                             <td class="text-center" scope="row"><?= $d['harga']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['stok']; ?></td>
+                            <td class="text-center" scope="row">
+                                <?php
+                                echo $d['stok'];
+                                if ($d['stok'] <= 30) :
+                                    echo '&nbsp;<span class="badge bg-danger">Stok menipis</span>';
+                                endif;
+                                ?>
+                            </td>
                             </ </tr>
 
                         <?php } ?>
