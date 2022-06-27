@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <table class="table table-hover">
+            <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">#</th>

@@ -22,7 +22,7 @@
                 </figcaption>
             </figure>
 
-            <table class="table table-success table-striped">
+            <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">#</th>
@@ -142,7 +142,7 @@
             </form>
 
             <br>
-            <table class="table table-success table-striped">
+            <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">#</th>

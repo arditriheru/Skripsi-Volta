@@ -22,14 +22,14 @@
             </figure>
             <a href="kasir.php" type="submit" class="btn btn-warning float-end">Kembali</a>
             <br><br>
-            <table class="table table-success table-stripe">
+            <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
                         <td class="text-center"><b>Nama Pasien : <?= $_GET['nama']; ?></b></td>
                     </tr>
                 </thead>
             </table>
-            <table class="table table-success table-stripe">
+            <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">#</th>

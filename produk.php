@@ -22,7 +22,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <table class="table table-success table-striped">
+            <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">#</th>
