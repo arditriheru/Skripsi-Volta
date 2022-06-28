@@ -22,6 +22,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12">
+            <a href="#" class="btn btn-primary btn-sm mb-3"><i class="fa-solid fa-print"></i> Stok keluar</a>
             <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
