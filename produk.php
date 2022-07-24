@@ -1,11 +1,11 @@
 <?php include('templates/header.php'); ?>
 <div class="container">
-    <div class="row">
+    <div class="row noprint">
         <div class="col-md-12">
             <img src="img/header.jpg" class="img-fluid" alt="...">
         </div>
     </div>
-    <div class="row mt-3 mb-2">
+    <div class="row mt-3 mb-2 noprint">
         <div class="col">
             <?php include('menu.php'); ?>
         </div>
@@ -13,7 +13,7 @@
     <div class="row">
         <figure class="text-center">
             <blockquote class="blockquote">
-                <p>Pasien Treatment</p>
+                <p>Stok Produk</p>
             </blockquote>
             <figcaption class="blockquote-footer">
                 Beauty Lux
@@ -22,7 +22,14 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <a href="#" class="btn btn-primary btn-sm mb-3"><i class="fa-solid fa-print"></i> Stok keluar</a>
+            <a href="?print=t" class="btn btn-primary btn-sm mb-3 noprint"><i class="fa-solid fa-print"></i> Print Stok</a>
+
+            <?php if (!empty($_GET['print'])) : ?>
+                <script>
+                    window.print();
+                </script>
+            <?php endif; ?>
+
             <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
@@ -38,7 +45,7 @@
                     $no = 1;
                     include 'templates/koneksi.php';
                     $query = mysqli_query($koneksi, "
-                    SELECT * FROM produk
+                    SELECT * FROM produk ORDER BY stok ASC
                     ");
                     while ($d = mysqli_fetch_array($query)) {
                     ?>
@@ -51,7 +58,7 @@
                                 <?php
                                 echo $d['stok'];
                                 if ($d['stok'] <= 30) :
-                                    echo '&nbsp;<span class="badge bg-danger">Stok menipis</span>';
+                                    echo '&nbsp;<span class="badge bg-danger">Menipis</span>';
                                 endif;
                                 ?>
                             </td>
