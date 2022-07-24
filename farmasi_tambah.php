@@ -14,6 +14,8 @@ $id_treatment   = $_POST['id_treatment'];
 $id_produk      = $_POST['id_produk'];
 $harga          = $_POST['harga'];
 $jumlah         = $_POST['jumlah'];
+$tanggal        = date('Y-m-d');
+$jam            = date('H:i:s');
 
 $cek_harga = mysqli_query(
     $koneksi,
@@ -23,7 +25,7 @@ while ($d = mysqli_fetch_array($cek_harga)) {
     $harga_satuan = $d['harga'];
 }
 
-$insert = mysqli_query($koneksi, "INSERT INTO detail_penjualan(id_detail_penjualan, id_treatment, id_produk, harga_satuan, jumlah)VALUES('','$id_treatment','$id_produk','$harga_satuan','$jumlah')");
+$insert = mysqli_query($koneksi, "INSERT INTO detail_penjualan(id_detail_penjualan, id_treatment, id_produk, harga_satuan, jumlah, tanggal, jam)VALUES('','$id_treatment','$id_produk','$harga_satuan','$jumlah','$tanggal','$jam')");
 
 if ($insert) {
     mysqli_query($koneksi, "UPDATE treatment 

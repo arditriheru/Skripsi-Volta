@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v12.5.1 (64 bit)
+SQLyog Enterprise v12.5.1 (64 bit)
 MySQL - 10.4.22-MariaDB : Database - db_superglow
 *********************************************************************
 */
@@ -47,7 +47,8 @@ CREATE TABLE `detail_penjualan` (
   `id_produk` int(100) NOT NULL,
   `harga_satuan` int(5) NOT NULL,
   `jumlah` int(3) NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `tanggal` date NOT NULL,
+  `jam` time NOT NULL,
   PRIMARY KEY (`id_detail_penjualan`),
   KEY `id_detail_penjualan` (`id_detail_penjualan`),
   KEY `id_produk` (`id_produk`)
@@ -55,8 +56,8 @@ CREATE TABLE `detail_penjualan` (
 
 /*Data for the table `detail_penjualan` */
 
-insert  into `detail_penjualan`(`id_detail_penjualan`,`id_treatment`,`id_produk`,`harga_satuan`,`jumlah`,`tanggal`) values 
-(1,1,1,55000,1,'2022-06-27 10:27:55');
+insert  into `detail_penjualan`(`id_detail_penjualan`,`id_treatment`,`id_produk`,`harga_satuan`,`jumlah`,`tanggal`,`jam`) values 
+(1,1,1,55000,1,'2022-07-24','21:32:53');
 
 /*Table structure for table `penjualan` */
 
@@ -70,9 +71,12 @@ CREATE TABLE `penjualan` (
   PRIMARY KEY (`id_penjualan`),
   KEY `id_penjualan` (`id_penjualan`),
   KEY `id_treatment` (`id_treatment`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `penjualan` */
+
+insert  into `penjualan`(`id_penjualan`,`id_treatment`,`total`,`tanggal`) values 
+(1,1,55000,'2022-07-24 21:35:18');
 
 /*Table structure for table `produk` */
 
@@ -93,10 +97,10 @@ CREATE TABLE `produk` (
 /*Data for the table `produk` */
 
 insert  into `produk`(`id_produk`,`id_produk_kategori`,`nama_produk`,`harga`,`stok`) values 
-(1,1,'LUX GLOW & WHITENING NIGHT CREAM',55000,96),
-(2,2,'LUX ACNE SERUM',75000,97),
-(3,2,'LUX GLOW SERUM',75000,94),
-(4,3,'LUX GLOW TONER',55000,97),
+(1,1,'LUX GLOW & WHITENING NIGHT CREAM',55000,100),
+(2,2,'LUX ACNE SERUM',75000,100),
+(3,2,'LUX GLOW SERUM',75000,100),
+(4,3,'LUX GLOW TONER',55000,100),
 (5,1,'LUX ACNE CALMING NIGHT CREAM',55000,100),
 (6,3,'LUX ACNE TONER',55000,100);
 
@@ -118,6 +122,25 @@ insert  into `produk_kategori`(`id_produk_kategori`,`nama_kategori`) values
 (2,'Serum'),
 (3,'Toner');
 
+/*Table structure for table `produk_pembelian` */
+
+DROP TABLE IF EXISTS `produk_pembelian`;
+
+CREATE TABLE `produk_pembelian` (
+  `id_produk_pembelian` int(100) NOT NULL AUTO_INCREMENT,
+  `id_produk` int(100) NOT NULL,
+  `harga` int(10) NOT NULL,
+  `jumlah` int(10) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jam` time NOT NULL,
+  PRIMARY KEY (`id_produk_pembelian`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `produk_pembelian` */
+
+insert  into `produk_pembelian`(`id_produk_pembelian`,`id_produk`,`harga`,`jumlah`,`tanggal`,`jam`) values 
+(1,1,55000,1,'2022-07-24','22:05:03');
+
 /*Table structure for table `treatment` */
 
 DROP TABLE IF EXISTS `treatment`;
@@ -136,13 +159,12 @@ CREATE TABLE `treatment` (
   KEY `id_treatment` (`id_treatment`),
   KEY `id_customer` (`id_customer`),
   CONSTRAINT `treatment_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`id_customer`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `treatment` */
 
 insert  into `treatment`(`id_treatment`,`id_customer`,`id_user`,`dokter`,`konsultasi`,`note`,`tanggal`,`status`,`kesimpulan`) values 
-(1,1,1,'dr. Ullya Nor Rosyidah','Treatment 1','Catatan 1','2022-06-27 10:27:55',2,'Kesimpulan #1'),
-(2,1,1,'dr. Indranila Kurniasari. Sp. KK','Treatment 2','Kondisi awal pasien','2022-06-27 10:01:51',0,NULL);
+(1,1,1,'dr. Ullya Nor Rosyidah','Treatment 1','Baik','2022-07-24 21:35:18',3,'Baik');
 
 /*Table structure for table `treatment_detail` */
 
@@ -162,7 +184,7 @@ CREATE TABLE `treatment_detail` (
 /*Data for the table `treatment_detail` */
 
 insert  into `treatment_detail`(`id_treatment_detail`,`id_treatment`,`id_produk`,`dosis`) values 
-(1,1,1,'1 buah');
+(1,1,1,'1');
 
 /*Table structure for table `user` */
 
@@ -196,6 +218,20 @@ DELIMITER $$
 
 /*!50003 CREATE */ /*!50017 DEFINER = 'root'@'localhost' */ /*!50003 TRIGGER `barang_keluar` AFTER INSERT ON `detail_penjualan` FOR EACH ROW BEGIN
    UPDATE produk SET stok = stok - NEW.jumlah
+   WHERE id_produk = NEW.id_produk;
+END */$$
+
+
+DELIMITER ;
+
+/* Trigger structure for table `produk_pembelian` */
+
+DELIMITER $$
+
+/*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `barang_masuk` */$$
+
+/*!50003 CREATE */ /*!50017 DEFINER = 'root'@'localhost' */ /*!50003 TRIGGER `barang_masuk` AFTER INSERT ON `produk_pembelian` FOR EACH ROW BEGIN
+   UPDATE produk SET stok = stok + NEW.jumlah
    WHERE id_produk = NEW.id_produk;
 END */$$
 

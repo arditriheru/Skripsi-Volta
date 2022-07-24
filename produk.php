@@ -22,6 +22,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12">
+            <a href="produk_pembelian.php" class="btn btn-success btn-sm mb-3 noprint"><i class="fa-solid fa-plus"></i> Pembelian</a>
             <a href="?print=t" class="btn btn-primary btn-sm mb-3 noprint"><i class="fa-solid fa-print"></i> Print Stok</a>
 
             <?php if (!empty($_GET['print'])) : ?>
