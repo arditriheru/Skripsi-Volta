@@ -67,7 +67,14 @@
                     </div>
                     <div class="col-12">
                         <label><b>Dosis</b></label>
-                        <input type="text" name="dosis" class="form-control" placeholder="Tuliskan.." required>
+                        <select name="dosis" class="form-select" aria-label="Default select example" required>
+                            <option value="">Pilih</option>
+                            <option value="1">1 (Satu)</option>
+                            <option value="2">2 (Dua)</option>
+                            <option value="3">3 (Tiga)</option>
+                            <option value="4">4 (Empat)</option>
+                            <option value="5">5 (Lima)</option>
+                        </select>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary float-end">Tambah</button>

@@ -25,12 +25,19 @@
             <form method="post" action="daftar_treatment_cari_nama_list.php" class="row g-3">
                 <div class="col-12">
                     <label><b>Nama Lengkap</b></label>
-                    <input type="text" name="nama" class="form-control" placeholder="Tuliskan nama lengkap..">
+                    <input type="text" name="nama" id="nama" value="" class="form-control" placeholder="Tuliskan nama lengkap..">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary float-end">Cari</button>
                 </div>
             </form>
+            <script>
+                $(function() {
+                    $("#nama").autocomplete({
+                        source: 'autocomplete.php'
+                    });
+                });
+            </script>
         </div>
         <div class="col-md-6">
             <form method="get" action="daftar_treatment_form.php" class="row g-3">

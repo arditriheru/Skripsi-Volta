@@ -43,10 +43,6 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label><b>Harga</b></label>
-                    <input type="number" name="harga" class="form-control" placeholder="Tuliskan.." required>
-                </div>
-                <div class="col-12">
                     <label><b>Jumlah</b></label>
                     <input type="number" name="jumlah" class="form-control" placeholder="Tuliskan.." required>
                 </div>
