@@ -129,7 +129,6 @@ DROP TABLE IF EXISTS `produk_pembelian`;
 CREATE TABLE `produk_pembelian` (
   `id_produk_pembelian` int(100) NOT NULL AUTO_INCREMENT,
   `id_produk` int(100) NOT NULL,
-  `harga` int(10) NOT NULL,
   `jumlah` int(10) NOT NULL,
   `tanggal` date NOT NULL,
   `jam` time NOT NULL,
@@ -138,8 +137,8 @@ CREATE TABLE `produk_pembelian` (
 
 /*Data for the table `produk_pembelian` */
 
-insert  into `produk_pembelian`(`id_produk_pembelian`,`id_produk`,`harga`,`jumlah`,`tanggal`,`jam`) values 
-(1,1,55000,1,'2022-07-24','22:05:03');
+insert  into `produk_pembelian`(`id_produk_pembelian`,`id_produk`,`jumlah`,`tanggal`,`jam`) values 
+(1,1,1,'2022-07-24','22:05:03');
 
 /*Table structure for table `treatment` */
 
