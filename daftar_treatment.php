@@ -75,7 +75,8 @@
                     CASE
                     WHEN treatment.status = 0 THEN 'Proses konsultasi'
                     WHEN treatment.status = 1 THEN 'Farmasi'
-                    WHEN treatment.status = 2 THEN 'Bayar'
+                    WHEN treatment.status = 2 THEN 'Kasir'
+                    WHEN treatment.status = 3 THEN 'Selesai'
                     END AS nm_status
                     FROM treatment
                     JOIN customer
