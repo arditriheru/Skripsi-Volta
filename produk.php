@@ -22,13 +22,15 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <a href="produk_tambah_form.php" class="btn btn-success btn-sm mb-3 noprint"><i class="fa-solid fa-plus"></i> Stok</a>
-            <a href="?print=t" class="btn btn-primary btn-sm mb-3 noprint"><i class="fa-solid fa-print"></i> Print Stok</a>
+            <a href="produk_tambah_form.php" class="btn btn-success btn-sm mb-3 noprint"><i
+                    class="fa-solid fa-plus"></i> Produk</a>
+            <a href="?print=t" class="btn btn-primary btn-sm mb-3 noprint"><i class="fa-solid fa-print"></i> Print
+                Stok</a>
 
             <?php if (!empty($_GET['print'])) : ?>
-                <script>
-                    window.print();
-                </script>
+            <script>
+            window.print();
+            </script>
             <?php endif; ?>
 
             <table class="table table-hover table-light table-striped">
@@ -51,19 +53,19 @@
                     while ($d = mysqli_fetch_array($query)) {
                     ?>
 
-                        <tr>
-                            <td class="text-center" scope="row"><?= $no++; ?></td>
-                            <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['harga']; ?></td>
-                            <td class="text-center" scope="row">
-                                <?php
+                    <tr>
+                        <td class="text-center" scope="row"><?= $no++; ?></td>
+                        <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['harga']; ?></td>
+                        <td class="text-center" scope="row">
+                            <?php
                                 echo $d['stok'];
                                 if ($d['stok'] <= 30) :
                                     echo '&nbsp;<span class="badge bg-danger">Menipis</span>';
                                 endif;
                                 ?>
-                            </td>
-                            </ </tr>
+                        </td>
+                        </ </tr>
 
                         <?php } ?>
 
