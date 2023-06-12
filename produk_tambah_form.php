@@ -22,6 +22,9 @@
     </div>
     <div class="row">
         <div class="col-md-4">
+
+            <?php if(empty($_GET['filter'])){ ?>
+
             <form method="post" action="produk_tambah.php" class="row g-3" enctype="multipart/form-data">
                 <div class="col-12">
                     <label><b>Nama Produk</b></label>
@@ -36,7 +39,7 @@
                         );
                         while ($a = mysqli_fetch_array($data)) { ?>
 
-                            <option value="<?= $a['id_produk']; ?>"><?= $a['nama_produk']; ?></option>
+                        <option value="<?= $a['id_produk']; ?>"><?= $a['nama_produk']; ?></option>
 
                         <?php } ?>
 
@@ -50,8 +53,24 @@
                     <button type="submit" class="btn btn-primary float-end">Tambah</button>
                 </div>
             </form>
+
+            <?php }else{ ?>
+
+            <form method="get" action="" class="row g-3">
+                <label><b>Tanggal Awal</b></label>
+                <input type="date" name="tgl_awal" class="form-control" value="<?= $_GET['tgl_awal']; ?>" require>
+                <label><b>Tanggal Akhir</b></label>
+                <input type="date" name="tgl_akhir" class="form-control" value="<?= $_GET['tgl_akhir']; ?>" require>
+                <input type="hidden" name="filter" class="form-control" value="by-date" require>
+                <button type="submit" class="btn btn-primary">Tampilkan Data</button>
+            </form>
+
+            <?php } ?>
+
         </div>
         <div class="col-md-8">
+            <a href="?filter=by-date" class="btn btn-success btn-sm mb-3 noprint"><i class="fa-solid fa-search"></i>
+                Filter Data</a>
             <table class="table table-hover table-light table-striped">
                 <thead>
                     <tr>
@@ -65,24 +84,45 @@
                     <?php
                     $no = 1;
                     include 'templates/koneksi.php';
-                    $query = mysqli_query($koneksi, "
+                    
+                    if(isset($_GET['tgl_awal'])){
+                        $tgl_awal = $_GET['tgl_awal'];
+                        $tgl_akhir = $_GET['tgl_akhir'];
+                        $query = mysqli_query($koneksi, "
                         SELECT * 
                         FROM produk_pembelian
                         JOIN produk
                         ON produk_pembelian.id_produk = produk.id_produk
+                        WHERE tanggal BETWEEN '$tgl_awal' AND '$tgl_akhir'
                         ORDER BY id_produk_pembelian DESC 
                         LIMIT 100
                     ");
+                    
+                    }else{
+
+                        $query = mysqli_query($koneksi, "
+                        SELECT * 
+                        FROM produk_pembelian
+                        JOIN produk
+                        ON produk_pembelian.id_produk = produk.id_produk
+                        WHERE DATE(tanggal) = CURDATE()
+                        ORDER BY id_produk_pembelian DESC 
+                        LIMIT 100
+                    ");
+                    
+                    }
+                    
                     while ($d = mysqli_fetch_array($query)) {
                     ?>
 
-                        <tr>
-                            <td class="text-center" scope="row"><?= date('d-m-Y', strtotime($d['tanggal'])) . '&nbsp;' . $d['jam']; ?></td>
-                            <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
-                            <td class="text-center" scope="row">
-                                <?php echo $d['jumlah']; ?>
-                            </td>
-                            </ </tr>
+                    <tr>
+                        <td class="text-center" scope="row">
+                            <?= date('d-m-Y', strtotime($d['tanggal'])) . '&nbsp;' . $d['jam']; ?></td>
+                        <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
+                        <td class="text-center" scope="row">
+                            <?php echo $d['jumlah']; ?>
+                        </td>
+                        </ </tr>
 
                         <?php } ?>
 
