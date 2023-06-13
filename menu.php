@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (empty($_SESSION["id_user"])){
+    header("location:index.php");
+}
+?>
 <div class="row">
     <div class="col-md-8">
         <ul class="nav nav-pills">

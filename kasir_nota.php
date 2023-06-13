@@ -57,12 +57,12 @@
                         $subtotal =  $d['harga_satuan'] * $d['jumlah'];
                         $grandtotal += $subtotal;
                     ?>
-                        <tr>
-                            <td class="text-center" scope="row"><?= $no++; ?></td>
-                            <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['jumlah']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['harga_satuan']; ?></td>
-                        </tr>
+                    <tr>
+                        <td class="text-center" scope="row"><?= $no++; ?></td>
+                        <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['jumlah']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['harga_satuan']; ?></td>
+                    </tr>
 
                     <?php } ?>
 
@@ -76,8 +76,10 @@
                         <td colspan="4">
                             <form method="post" action="kasir_tambah.php" class="row g-3">
                                 <div class="col-12">
-                                    <input type="hidden" name="id_treatment" class="form-control" value="<?php echo $_GET['id_treatment']; ?>" readonly>
-                                    <input type="hidden" name="total" class="form-control" value="<?php echo $grandtotal; ?>" readonly>
+                                    <input type="hidden" name="id_treatment" class="form-control"
+                                        value="<?php echo $_GET['id_treatment']; ?>" readonly>
+                                    <input type="hidden" name="total" class="form-control"
+                                        value="<?php echo $grandtotal; ?>" readonly>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary float-end">Bayar</button>

@@ -56,16 +56,19 @@
                     while ($d = mysqli_fetch_array($query)) {
                     ?>
 
-                        <tr>
-                            <td class="text-center" scope="row"><?= $no++; ?></td>
-                            <td class="text-center" scope="row"><?= $d['id_treatment']; ?></td>
-                            <td class="text-center" scope="row"><span class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
-                            <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
-                            <td class="text-right" scope="row"><?= $d['nama']; ?></td>
-                            <td class="text-center" scope="row">
-                                <a href="kasir_nota.php?id_treatment=<?= $d['id_treatment']; ?>&nama=<?= $d['nama']; ?>" type="button" class="btn btn-success btn-sm">Nota</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td class="text-center" scope="row"><?= $no++; ?></td>
+                        <td class="text-center" scope="row"><?= $d['id_treatment']; ?></td>
+                        <td class="text-center" scope="row"><span
+                                class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?>
+                        </td>
+                        <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
+                        <td class="text-right" scope="row"><?= $d['nama']; ?></td>
+                        <td class="text-center" scope="row">
+                            <a href="kasir_nota.php?id_treatment=<?= $d['id_treatment']; ?>&nama=<?= $d['nama']; ?>"
+                                type="button" class="btn btn-success btn-sm">Nota</a>
+                        </td>
+                    </tr>
 
                     <?php } ?>
 

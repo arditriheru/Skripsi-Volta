@@ -42,26 +42,27 @@
         $awal   = $_GET['tgl_awal'];
         $akhir  = $_GET['tgl_akhir'];
     ?>
-        <script>
-            window.print();
-        </script>
+    <script>
+    window.print();
+    </script>
 
-        <div class="row mb-5">
-            <div class="col-md-12">
-                <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-success btn-sm mt-3 mb-3 noprint"><i class="fa-solid fa-print"></i> Print</a>
-                <p>Periode : <?= date('d-m-Y', strtotime($awal)) . ' - ' . date('d-m-Y', strtotime($akhir)); ?></p>
-                <table class="table table-hover table-light table-striped">
-                    <thead>
-                        <tr>
-                            <th class="text-center" scope="col">#</th>
-                            <th class="text-center" scope="col">Nama Produk</th>
-                            <th class="text-center" scope="col">Tanggal</th>
-                            <th class="text-center" scope="col">Keluar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <a href="<?php $_SERVER['PHP_SELF']; ?>" class="btn btn-success btn-sm mt-3 mb-3 noprint"><i
+                    class="fa-solid fa-print"></i> Print</a>
+            <p>Periode : <?= date('d-m-Y', strtotime($awal)) . ' - ' . date('d-m-Y', strtotime($akhir)); ?></p>
+            <table class="table table-hover table-light table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">#</th>
+                        <th class="text-center" scope="col">Nama Produk</th>
+                        <th class="text-center" scope="col">Tanggal</th>
+                        <th class="text-center" scope="col">Keluar</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <?php
+                    <?php
                         $no = 1;
                         include 'templates/koneksi.php';
                         $query = mysqli_query($koneksi, "
@@ -75,20 +76,21 @@
                         while ($d = mysqli_fetch_array($query)) {
                         ?>
 
-                            <tr>
-                                <td class="text-center" scope="row"><?= $no++; ?></td>
-                                <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
-                                <td class="text-center" scope="row"><?= date('d-m-Y', strtotime($d['tanggal'])) . '&nbsp;' . $d['jam']; ?></td>
-                                <td class="text-center" scope="row">
-                                    <?php echo $d['terjual']; ?>
-                                </td>
-                                </ </tr>
+                    <tr>
+                        <td class="text-center" scope="row"><?= $no++; ?></td>
+                        <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
+                        <td class="text-center" scope="row">
+                            <?= date('d-m-Y', strtotime($d['tanggal'])) . '&nbsp;' . $d['jam']; ?></td>
+                        <td class="text-center" scope="row">
+                            <?php echo $d['terjual']; ?>
+                        </td>
+                        </ </tr>
 
-                            <?php } ?>
+                        <?php } ?>
 
-                </table>
-            </div>
+            </table>
         </div>
+    </div>
 
     <?php endif; ?>
 

@@ -25,18 +25,19 @@
             <form method="post" action="daftar_treatment_cari_nama_list.php" class="row g-3">
                 <div class="col-12">
                     <label><b>Nama Lengkap</b></label>
-                    <input type="text" name="nama" id="nama" value="" class="form-control" placeholder="Tuliskan nama lengkap..">
+                    <input type="text" name="nama" id="nama" value="" class="form-control"
+                        placeholder="Tuliskan nama lengkap..">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary float-end">Cari</button>
                 </div>
             </form>
             <script>
-                $(function() {
-                    $("#nama").autocomplete({
-                        source: 'autocomplete.php'
-                    });
+            $(function() {
+                $("#nama").autocomplete({
+                    source: 'autocomplete.php'
                 });
+            });
             </script>
         </div>
         <div class="col-md-6">
@@ -86,16 +87,20 @@
                     while ($d = mysqli_fetch_array($query)) {
                     ?>
 
-                        <tr>
-                            <td class="text-center" scope="row"><?= $no++; ?></td>
-                            <td class="text-center" scope="row"> <span class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
-                            <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
-                            <td class="text-right" scope="row"><?= $d['nama']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['tempat_lahir'] . ',&nbsp;' . date('d m Y', strtotime($d['tgl_lahir'])); ?></td>
-                            <td class="text-center" scope="row">
-                                <a href="daftar_treatment_detail.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success btn-sm">Detail</a>
-                            </td>
-                            </ </tr>
+                    <tr>
+                        <td class="text-center" scope="row"><?= $no++; ?></td>
+                        <td class="text-center" scope="row"> <span
+                                class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?>
+                        </td>
+                        <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
+                        <td class="text-right" scope="row"><?= $d['nama']; ?></td>
+                        <td class="text-center" scope="row">
+                            <?= $d['tempat_lahir'] . ',&nbsp;' . date('d m Y', strtotime($d['tgl_lahir'])); ?></td>
+                        <td class="text-center" scope="row">
+                            <a href="daftar_treatment_detail.php?id_treatment=<?= $d['id_treatment']; ?>" type="button"
+                                class="btn btn-success btn-sm">Detail</a>
+                        </td>
+                        </ </tr>
 
                         <?php } ?>
 

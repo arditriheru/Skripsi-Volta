@@ -16,7 +16,8 @@
                     </div>
                     <div class="col-12">
                         <label><b>Password</b></label>
-                        <input type="password" name="password" class="form-control" placeholder="Masukkan password anda..">
+                        <input type="password" name="password" class="form-control"
+                            placeholder="Masukkan password anda..">
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary float-end">Login</button>

@@ -59,20 +59,23 @@
                     while ($d = mysqli_fetch_array($query)) {
                     ?>
 
-                        <tr>
-                            <td class="text-center" scope="row"><?= $no++; ?></td>
-                            <td class="text-center" scope="row"><?= $d['id_treatment']; ?></td>
-                            <td class="text-center" scope="row"><span class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
-                            <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
-                            <td class="text-right" scope="row"><?= $d['nama']; ?></td>
-                            <td class="text-right" scope="row"><?= $d['dokter']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['note']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['kesimpulan']; ?></td>
-                            <td class="text-center" scope="row">
-                                <a href="farmasi_form_tambah.php?id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success btn-sm">Detail</a>
-                            </td>
-                            </ </tr>
+                    <tr>
+                        <td class="text-center" scope="row"><?= $no++; ?></td>
+                        <td class="text-center" scope="row"><?= $d['id_treatment']; ?></td>
+                        <td class="text-center" scope="row"><span
+                                class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?>
+                        </td>
+                        <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
+                        <td class="text-right" scope="row"><?= $d['nama']; ?></td>
+                        <td class="text-right" scope="row"><?= $d['dokter']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['note']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['kesimpulan']; ?></td>
+                        <td class="text-center" scope="row">
+                            <a href="farmasi_form_tambah.php?id_treatment=<?= $d['id_treatment']; ?>" type="button"
+                                class="btn btn-success btn-sm">Detail</a>
+                        </td>
+                        </ </tr>
 
                         <?php } ?>
 

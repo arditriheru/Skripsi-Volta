@@ -21,7 +21,8 @@
                 <div class="col-md-6">
                     <div class="col-12">
                         <label><b>Tempat Lahir</b></label>
-                        <input type="text" name="tempat_lahir" class="form-control" placeholder="Tuliskan tempat lahir..">
+                        <input type="text" name="tempat_lahir" class="form-control"
+                            placeholder="Tuliskan tempat lahir..">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -37,7 +38,8 @@
                 <div class="col-12">
                     <label><b>Alamat Lengkap</b></label>
                     <div class="form-floating">
-                        <textarea class="form-control" name="alamat" placeholder="Tuliskan alamat lengkap.." id="floatingTextarea2" style="height: 100px"></textarea>
+                        <textarea class="form-control" name="alamat" placeholder="Tuliskan alamat lengkap.."
+                            id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Tuliskan alamat lengkap..</b></label>
                     </div>
                 </div>

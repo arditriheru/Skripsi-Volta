@@ -59,19 +59,22 @@
                     while ($d = mysqli_fetch_array($query)) {
                     ?>
 
-                        <tr>
-                            <td class="text-center" scope="row"><?= $no++; ?></td>
-                            <td class="text-center" scope="row"><?= $d['id_treatment']; ?></td>
-                            <td class="text-center" scope="row"><span class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
-                            <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
-                            <td class="text-right" scope="row"><?= $d['nama']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['note']; ?></td>
-                            <td class="text-center" scope="row"><?= $d['kesimpulan']; ?></td>
-                            <td class="text-center" scope="row">
-                                <a href="registrasi_riwayat.php?id_customer=<?= $d['id_customer']; ?>&id_treatment=<?= $d['id_treatment']; ?>" type="button" class="btn btn-success btn-sm">Detail</a>
-                            </td>
-                            </ </tr>
+                    <tr>
+                        <td class="text-center" scope="row"><?= $no++; ?></td>
+                        <td class="text-center" scope="row"><?= $d['id_treatment']; ?></td>
+                        <td class="text-center" scope="row"><span
+                                class="badge bg-primary"><?= $d['nm_status']; ?></span><br><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?>
+                        </td>
+                        <td class="text-center" scope="row"><?= $d['id_customer']; ?></td>
+                        <td class="text-right" scope="row"><?= $d['nama']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['note']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['kesimpulan']; ?></td>
+                        <td class="text-center" scope="row">
+                            <a href="registrasi_riwayat.php?id_customer=<?= $d['id_customer']; ?>&id_treatment=<?= $d['id_treatment']; ?>"
+                                type="button" class="btn btn-success btn-sm">Detail</a>
+                        </td>
+                        </ </tr>
 
                         <?php } ?>
 
@@ -79,20 +82,20 @@
 
             <?php if (!empty($_GET['id_treatment'])) : ?>
 
-                <h5 class="mt-5">Detail Pembelian Produk</h5>
-                <table class="table table-hover table-light table-striped">
-                    <thead>
-                        <tr>
-                            <th class="text-center" scope="col">#</th>
-                            <th class="text-center" scope="col">Registrasi</th>
-                            <th class="text-center" scope="col">Konsultasi</th>
-                            <th class="text-center" scope="col">Nama Produk</th>
-                            <th class="text-center" scope="col">Jumlah</th>
-                            <th class="text-center" scope="col">Kesimpulan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+            <h5 class="mt-5">Detail Pembelian Produk</h5>
+            <table class="table table-hover table-light table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">#</th>
+                        <th class="text-center" scope="col">Registrasi</th>
+                        <th class="text-center" scope="col">Konsultasi</th>
+                        <th class="text-center" scope="col">Nama Produk</th>
+                        <th class="text-center" scope="col">Jumlah</th>
+                        <th class="text-center" scope="col">Kesimpulan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
                         $id_treatment = $_GET['id_treatment'];
                         $no = 1;
                         include 'templates/koneksi.php';
@@ -110,17 +113,17 @@
                         while ($d = mysqli_fetch_array($query)) {
                         ?>
 
-                            <tr>
-                                <td class="text-center" scope="row"><?= $no++; ?></td>
-                                <td class="text-center" scope="row"><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
-                                <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
-                                <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
-                                <td class="text-center" scope="row"><?= $d['dosis']; ?></td>
-                                <td class="text-center" scope="row"><?= $d['kesimpulan']; ?></td>
-                            </tr>
+                    <tr>
+                        <td class="text-center" scope="row"><?= $no++; ?></td>
+                        <td class="text-center" scope="row"><?= date('d/m/Y H:i:s', strtotime($d['tanggal'])); ?></td>
+                        <td class="text-center" scope="row"><?= $d['konsultasi']; ?></td>
+                        <td class="text-left" scope="row"><?= $d['nama_produk']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['dosis']; ?></td>
+                        <td class="text-center" scope="row"><?= $d['kesimpulan']; ?></td>
+                    </tr>
 
-                        <?php } ?>
-                </table>
+                    <?php } ?>
+            </table>
 
             <?php endif; ?>
 

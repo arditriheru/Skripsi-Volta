@@ -28,32 +28,32 @@
             while ($d = mysqli_fetch_array($query)) {
             ?>
 
-                <form method="post" action="daftar_treatment_tambah.php" class="row g-3">
-                    <div class="col-12">
-                        <a href="daftar_treatment.php" type="submit" class="btn btn-warning float-end">Kembali</a>
-                    </div>
-                    <h4 class="text-center">Detail Treatment</h4>
-                    <div class="col-12">
-                        <label><b>Nomor RM</b></label>
-                        <input type="text" name="" class="form-control" value="<?= $d['id_customer']; ?>" readonly>
-                    </div>
-                    <div class="col-12">
-                        <label><b>Nama Lengkap</b></label>
-                        <input type="text" name="" class="form-control" value="<?= $d['nama']; ?>" readonly>
-                    </div>
-                    <div class="col-12">
-                        <label><b>Dokter</b></label>
-                        <input type="text" name="" class="form-control" value="<?= $d['dokter']; ?>" readonly>
-                    </div>
-                    <div class="col-12">
-                        <label><b>Konsultasi</b></label>
-                        <input type="text" name="" class="form-control" value="<?= $d['konsultasi']; ?>" readonly>
-                    </div>
-                    <div class="col-12">
-                        <label><b>Catatan Khusus</b></label>
-                        <input type="text" name="" class="form-control" value="<?= $d['note']; ?>" readonly>
-                    </div>
-                </form>
+            <form method="post" action="daftar_treatment_tambah.php" class="row g-3">
+                <div class="col-12">
+                    <a href="daftar_treatment.php" type="submit" class="btn btn-warning float-end">Kembali</a>
+                </div>
+                <h4 class="text-center">Detail Treatment</h4>
+                <div class="col-12">
+                    <label><b>Nomor RM</b></label>
+                    <input type="text" name="" class="form-control" value="<?= $d['id_customer']; ?>" readonly>
+                </div>
+                <div class="col-12">
+                    <label><b>Nama Lengkap</b></label>
+                    <input type="text" name="" class="form-control" value="<?= $d['nama']; ?>" readonly>
+                </div>
+                <div class="col-12">
+                    <label><b>Dokter</b></label>
+                    <input type="text" name="" class="form-control" value="<?= $d['dokter']; ?>" readonly>
+                </div>
+                <div class="col-12">
+                    <label><b>Konsultasi</b></label>
+                    <input type="text" name="" class="form-control" value="<?= $d['konsultasi']; ?>" readonly>
+                </div>
+                <div class="col-12">
+                    <label><b>Catatan Khusus</b></label>
+                    <input type="text" name="" class="form-control" value="<?= $d['note']; ?>" readonly>
+                </div>
+            </form>
 
             <?php } ?>
 
