@@ -21,9 +21,49 @@
         </figure>
     </div>
     <div class="row mt-5">
+        <div class="col-md-12 mb-3">
+
+            <?php if(isset($_GET['action']) &&  $_GET['action'] == 'add'){ ?>
+
+                <form method="post" action="produk_kategori_tambah.php" class="row g-3" enctype="multipart/form-data">
+                    <div class="col-4">
+                        <label><b>Nama Produk</b></label>
+                        <input type="text" name="nama_produk" class="form-control" placeholder="Contoh : LUX ACNE SERUM" required>
+                    </div>
+                    <div class="col-4">
+                        <label><b>Nama Produk</b></label>
+                        <select name="id_produk_kategori" class="form-select" aria-label="Default select example" required>
+                            <option value="">Pilih</option>
+                            <?php
+                            $no = 0;
+                            include 'templates/koneksi.php';
+                            $data = mysqli_query(
+                                $koneksi,
+                                "SELECT * FROM produk_kategori;"
+                            );
+                            while ($a = mysqli_fetch_array($data)) { ?>
+
+                            <option value="<?= $a['id_produk_kategori']; ?>"><?= $a['nama_kategori']; ?></option>
+
+                            <?php } ?>
+
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <label><b>Harga</b></label>
+                        <input type="number" name="harga" class="form-control" placeholder="50000" required>
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-primary float-left mt-4">Tambah</button>
+                    </div>
+                </form>
+
+            <?php } ?>
+
+</div>
         <div class="col-md-12">
-            <a href="produk_tambah_form.php" class="btn btn-success btn-sm mb-3 noprint"><i
-                    class="fa-solid fa-plus"></i> Produk</a>
+            <a href="?action=add" class="btn btn-success btn-sm mb-3 noprint"><i
+                    class="fa-solid fa-plus"></i> Produk Item</a>
             <a href="?print=t" class="btn btn-primary btn-sm mb-3 noprint"><i class="fa-solid fa-print"></i> Print
                 Stok</a>
 
@@ -48,7 +88,7 @@
                     $no = 1;
                     include 'templates/koneksi.php';
                     $query = mysqli_query($koneksi, "
-                    SELECT * FROM produk ORDER BY stok ASC
+                    SELECT * FROM produk ORDER BY nama_produk ASC
                     ");
                     while ($d = mysqli_fetch_array($query)) {
                     ?>
